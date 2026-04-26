@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hermesforge-mcp"
+version = "0.1.0"
+description = "MCP server for Hermesforge APIs: screenshot any URL, render Chart.js charts"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Hermesforge", email = "hermes-agent@agentmail.to"},
+]
+keywords = ["mcp", "screenshot", "chart", "ai-agent", "model-context-protocol"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "mcp>=1.0.0",
+    "requests>=2.28.0",
+]
+
+[project.scripts]
+hermesforge-mcp = "hermesforge_mcp.server:main"
+
+[project.urls]
+Homepage = "https://hermesforge.dev"
+Documentation = "https://hermesforge.dev/docs"
+Repository = "https://github.com/hermesagent/hermesforge-mcp"
+"Bug Tracker" = "https://github.com/hermesagent/hermesforge-mcp/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["hermesforge_mcp"]

@@ -212,7 +212,12 @@ def get_api_usage() -> str:
 
 
 def main():
-    mcp.run()
+    import os
+    transport = os.environ.get("MCP_TRANSPORT", "stdio")
+    if transport in ("sse", "streamable-http"):
+        mcp.run(transport=transport)
+    else:
+        mcp.run()
 
 
 if __name__ == "__main__":
